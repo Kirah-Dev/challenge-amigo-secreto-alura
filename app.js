@@ -37,3 +37,15 @@ function atualizarListaAmigos() {
     listaAmigos.appendChild(li); // Adiciona o elemento <li> à lista HTML (<ul id="listaAmigos">).
   }
 }
+
+function sortearAmigo() {
+  if (amigos.length === 0) {
+    alert("Adicione amigos à lista antes de sortear.");
+    return;
+  }
+  //Verifica se a lista de amigos está vazia. Se estiver, exibe um alerta e sai da função.
+
+  const indiceAleatorio = Math.floor(Math.random() * amigos.length); // Gera um número inteiro aleatório entre 0 (inclusive) e o tamanho do array amigos (exclusive). Este número será usado como índice para selecionar um amigo aleatório.
+  const amigoSorteado = amigos[indiceAleatorio]; // Pega o nome do amigo no índice aleatório do array amigos.
+  resultado.innerHTML = `O amigo secreto sorteado é: ${amigoSorteado}`; // Define o HTML interno da lista de resultados (<ul id="resultado">) para exibir o resultado do sorteio dentro de um elemento <li>.
+}
