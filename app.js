@@ -22,6 +22,18 @@ function adicionarAmigo() {
   // Verifica se o nome já existe na lista de amigos. Se existir, exibe um alerta e sai da função. Isso impede a adição de nomes duplicados.
 
   amigos.push(nomeAmigo); // Adiciona o nome do amigo ao array amigos.
+  atualizarListaAmigos();
   inputAmigo.value = ""; // Limpa o campo de texto após adicionar o nome.
   inputAmigo.focus(); // Coloca o foco de volta no campo de texto para facilitar a digitação do próximo nome.
+}
+
+function atualizarListaAmigos() {
+  listaAmigos.innerHTML = ""; // Limpa a lista antes de adicionar os novos itens. Isso é importante para evitar que os nomes se dupliquem cada vez que a lista é atualizada.
+
+  for (let i = 0; i < amigos.length; i++) {
+    const amigo = amigos[i]; // Pega o nome do amigo na posição i do array.
+    const li = document.createElement("li"); // Cria um novo elemento <li> para cada amigo.
+    li.textContent = amigo; // Define o texto do elemento <li> com o nome do amigo.
+    listaAmigos.appendChild(li); // Adiciona o elemento <li> à lista HTML (<ul id="listaAmigos">).
+  }
 }
